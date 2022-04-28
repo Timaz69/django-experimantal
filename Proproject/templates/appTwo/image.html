@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends "appTwo/base.html" %}
+  {% block css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/imagestyle.css' %}">
+  {% endblock %}
+  {% block title %} Squirrel Page {% endblock %}
+  {% block body_block %}
+    <h1>Here are you're access records!</h1>
+    <div class="djangoTwo">
+      {%if access_records %}
+      <table>
+        <thead>
+          <th>Site Name</th>
+          <th>Date Accessed</th>
+          {% for acc in access_records %}
+          <tr>
+            <td>{{acc.name | upper}}</td>
+            <td>{{acc.date}}</td>
+          </tr>
+          {% endfor %}
+        </thead>
+      </table>
+      {% else %}
+      <p>NO ACCESS RECORDS FOUND!</p>
+      {% endif %}
+    </div>
+
+    <h1>HI, this is a picture of the cuttest chubby squirrel!</h1>
+    <img src="{% static  "images/Ottawa 107.jpg" %}" alt="OOh, didn't show properly !">
+  {% endblock %}

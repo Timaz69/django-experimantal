@@ -1,0 +1,21 @@
+{% extends "appTwo/base.html" %}
+{% load static %}
+  {% block title %} REGISTRATION PAGE  {% endblock %}
+  {% block body_block %}
+  <div class="parent-div bg-light border border-warning d-flex justify-content-center align-items-center">
+      {% if registered %}
+        <h1>Thank you for registrating</h1>
+      {% else %}
+      <div class="child-div">
+        <h1>Registered Here!</h1>
+        <h3>Fill out the form:</h3>
+        <form enctype="multipart/form-data" method="post">
+          {% csrf_token %}
+          {{ user_form.as_p }}
+          {{ profil_form.as_p }}
+          <input type="submit" class="btn btn-primary" value="Register">
+        </form>
+      </div>
+        {% endif %}
+    </div>
+  {% endblock %}

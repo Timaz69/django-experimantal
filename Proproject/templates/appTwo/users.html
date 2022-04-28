@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "appTwo/base.html" %}
+  {% block title %}  USERS LIST {% endblock %}
+  {% block body_block %}
+    <h1>Here are you're users : </h1>
+    <div class="userstab">
+      {% if users_info %}
+      <ol>
+        {% for user in users_info %}
+        <li>User Info</li>
+        <ul>
+          <li>First Name : {{user.first_name}}</li>
+          <li>Last Name : {{user.last_name}}</li>
+          <li>Email : {{user.email}}</li>
+        </ul>
+        {% endfor %}
+      </ol>
+      {% endif %}
+    </div>
+  {% endblock %}

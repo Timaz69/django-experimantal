@@ -1,0 +1,10 @@
+{% extends "appTwo/base.html" %}
+  {% block title %}  HELP PAGE  {% endblock %}
+  {% block body_block %}
+    {{help_insert}}
+    <p></p>
+    <a href="{% url 'image' %}">LINK TO IMAGE</a>
+    <p>
+      <a href="{% url 'admin:index' %}">LINK TO ADMIN</a>
+    </p>
+  {% endblock %}
